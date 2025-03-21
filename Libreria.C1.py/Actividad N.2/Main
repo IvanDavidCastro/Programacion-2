@@ -1,0 +1,45 @@
+
+class Vehiculo:
+
+    def __init__(self, fecha_fabricacion, vin_chasis, vin_motor):
+        self.fecha_fabricacion = fecha_fabricacion
+        self.vin_chasis = vin_chasis
+        self.vin_motor = vin_motor
+
+    def get_fecha_fabricacion(self):
+        return self.fecha_fabricacion
+
+    def get_vin_chasis(self):
+        return self.vin_chasis
+
+    def get_vin_motor(self):
+        return self.vin_motor
+
+
+class Automovil(Vehiculo):
+    
+    def __init__(self, fecha_fabricacion, vin_chasis, vin_motor, marca, modelo, precio):
+        super().__init__(fecha_fabricacion, vin_chasis, vin_motor)  # Llamada al constructor de la clase padre
+        self.marca = marca
+        self.modelo = modelo
+        self.precio = precio
+
+    # Métodos para obtener los atributos
+    def get_marca(self):
+        return self.marca
+
+    def get_modelo(self):
+        return self.modelo
+
+    def get_precio(self):
+        return self.precio
+
+mi_auto = Automovil("2025-01-01", "09186", "6ABCD", "Chevrolet", "Camaro", 259.99)
+
+print("Especificaciones del Vehículo:")
+print(f"Su Fecha de fabricación: {mi_auto.get_fecha_fabricacion()}")
+print(f"Su VIN Chasis: {mi_auto.get_vin_chasis()}")
+print(f"Su VIN Motor: {mi_auto.get_vin_motor()}")
+print(f"Su Marca: {mi_auto.get_marca()}")
+print(f"Su Modelo: {mi_auto.get_modelo()}")
+print(f"Su Precio: ${mi_auto.get_precio()}")

@@ -1,0 +1,9 @@
+
+from student import Student  
+
+X = Student("Nombre", "Apellido", "Edad", "Cel")
+
+XNombre= Str (input("Digite su Nombre: "))
+XNombre= Str(input("Digite su Apellido: "))
+XNombre= int(input("Digite su Edad: "))
+XNombre= int(input("Digite su Cel: "))
