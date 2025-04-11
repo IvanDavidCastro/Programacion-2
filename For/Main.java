@@ -2,8 +2,9 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package Ciclos;
+package While;
 
+import java.util.ArrayList;
 import java.util.Scanner;
 
 /**
@@ -12,40 +13,75 @@ import java.util.Scanner;
  */
 public class Main {
     public static void main(String[] args) {
-        boolean ciclos = true;
+        ArrayList<String> nombres = new ArrayList<String>();
+        Scanner leer = new Scanner(System.in);
+        int opcion = 0;
 
-        double nota1 = 0, nota2 = 0, nota3 = 0, notaFinal = 0;
-        try (Scanner leer = new Scanner(System.in)) {
-            while (ciclos) {
-              
-                System.out.println("\nMENU PRINCIPAL: \n 1. DIGITA NOTA1: \n 2. DIGITA NOTA2:  \n 3. DIGITA NOTA3: \n 4. CALCULA NOTA FINAL: \n 5. SALIR:");
-                System.out.print("\nELIJA UNA OPCION: ");
+        while (true) {
+            System.out.println("MENU PRINCIPAL: \n 1. AGREGAR NOMBRE: \n 2. ELIMINAR NOMBRE:  \n 3. ACTUALIZAR NOMBRE: \n 4. MOSTRAR NOMBRE: \n 5. SALIR:");
+            System.out.print("ELIJA UNA OPCION: ");
+
+            if (leer.hasNextInt()) {
+                opcion = leer.nextInt();
+                leer.nextLine();
+            } else {
+                System.out.println("Entrada inválida. Intente con un número.");
+                leer.next(); 
+                continue;
                 
-                int opcion = leer.nextInt();
+            }
                 
-                switch (opcion) {
-                    case 1 -> {
-                        System.out.print("\nDIGITA Nota 1: ");
-                        nota1 = leer.nextDouble();
+               switch (opcion) {
+                case 1:
+                System.out.print("\nSu Nombre es: ");
+                    String nombre = leer.nextLine();
+                    nombres.add(nombre);
+                    System.out.println("\nNombre agregado.");
+                    break;
+
+                case 2:
+                    System.out.print("\nEl nombre a eliminar es: ");
+                    String nombreDelete = leer.nextLine();
+                    if (nombres.contains(nombreDelete)) {
+                        nombres.remove(nombreDelete);
+                        System.out.println("\nNombre eliminado.");
+                    } else {
+                        System.out.println("Nombre no encontrado");
                     }
-                    case 2 -> {
-                        System.out.print("\nDIGITA Nota 2: ");
-                        nota2 = leer.nextDouble();
+                    break;
+
+                case 3:
+                    System.out.print("\nActualizar nombre: ");
+                    String nombreAnterior = leer.nextLine();
+
+                    if (nombres.contains(nombreAnterior)) {
+                        System.out.print("\nIngrese el nuevo nombre: ");
+                        String nombreActualizado = leer.nextLine();
+                        int index = nombres.indexOf(nombreAnterior);
+                        nombres.set(index, nombreActualizado);
+                        System.out.println("\nNombre actualizado.");
+                    } else {
+                        System.out.println("Nombre no encontrado.");
                     }
-                    case 3 -> {
-                        System.out.print("\nDIGITA Nota 3: ");
-                        nota3 = leer.nextDouble();
+                    break;
+
+                case 4:
+                    System.out.println("\nLista de Nombres");
+                    if (nombres.isEmpty()) {
+                        System.out.println("REGISTRO VASIO");
+                    } else {
+                        for (int i = 0; i < nombres.size(); i++) {
+                            System.out.println((i + 1) + ", " + nombres.get(i));
+                        }
                     }
-                    case 4 -> {
-                        notaFinal = (nota1 + nota2 + nota3)/3;
-                        System.out.println("\nSu nota final es: " + notaFinal);
-                    }
-                    case 5 -> {
-                        System.out.println("SALIR");
-                        ciclos = false;
-                    }
-                }
+                    break;
+
+                case 5:
+                    System.out.println("SALIR");
+                    leer.close();
+                    return;
             }
         }
     }
 }
+
