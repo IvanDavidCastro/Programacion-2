@@ -26,10 +26,10 @@ public class Main {
        
        //datos cargados manual 
         int [][] matriz = { 
-        {10,20,30,40},
-        {50,60,70,80},
-        {90,100,110,120},
-        {130,140,150,160},
+        {10,  20,  30,  40},
+        {50,  60,  70,  80},
+        {90, 100, 110, 120},
+        {130,140, 150, 160},
        
     };
         // Muestra la matriz
@@ -39,7 +39,7 @@ public class Main {
         int[] diagoPrincipal = new int[matriz.length];
         int[] diagoSecundaria = new int[matriz.length];
 
-        // Recorrer y extraer diagonales
+        // Buscar y extraer diagonales
         for (int i = 0; i < matriz.length; i++) {
             for (int j = 0; j < matriz[i].length; j++) {
                 if (i == j) {
