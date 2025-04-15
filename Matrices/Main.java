@@ -25,6 +25,7 @@ public class Main {
          Scanner leer = new Scanner(System.in);
        
        //datos cargados manual 
+        System.out.println("Esta es tu matriz: ");
         int [][] matriz = { 
         {10,  20,  30,  40},
         {50,  60,  70,  80},
